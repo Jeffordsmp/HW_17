@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Choop-A-Loop/HW_17#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.8.12"
+    "mongoose": "^5.8.12",
+    "path": "^0.12.7"
   }
 }

@@ -1,16 +1,44 @@
 const router = require("express").Router();
 const db = require("../models");
 
-router.post("/api/transaction", ({ body }, res) => {
-
+router.get("/api/workouts", (req, res) => {
+    db.Workout.find({})
+        .then(dbWorkout => {
+            res.json(dbWorkout)
+        })
+        .catch(err => {
+            res.send(err)
+        })
 });
 
-router.post("/api/transaction/bulk", ({ body }, res) => {
-
+router.get("/api/workouts/range", (req, res) => {
+    db.Workout.find({})
+        .then(dbWorkout => {
+            res.json(dbWorkout)
+        })
+        .catch(err => {
+            res.send(err)
+        })
 });
 
-router.get("/api/transaction", (req, res) => {
+router.put("/api/workouts/:id", (req, res) => {
+    db.Workout.findByIdAndUpdate({ _id: req.param.id })
+        .then(dbWorkout => {
+            res.json(dbWorkout)
+        })
+        .catch(err => {
+            res.send(err)
+        })
+});
 
+router.post("/api/workouts", ({ body }, res) => {
+    db.Workout.create(body)
+        .then(dbWorkout => {
+            res.json(dbWorkout)
+        })
+        .catch(err => {
+            res.send(err)
+        })
 });
 
 module.exports = router;
